@@ -1,0 +1,79 @@
+import type { Config } from 'tailwindcss'
+
+export default {
+  content: [
+    './components/**/*.vue',
+    './pages/**/*.vue',
+    './app.vue'
+  ],
+  theme: {
+    extend: {
+      colors: {
+        rose: {
+          50: '#fff1f2',
+          100: '#ffe4e6',
+          200: '#fecdd3',
+          300: '#fda4af',
+          400: '#fb7185',
+          500: '#f43f5e',
+          600: '#e11d48',
+          700: '#be123c',
+          800: '#9f1239',
+          900: '#881337'
+        },
+        blush: '#fff0f3',
+        candy: '#ff6b9d',
+        deep: '#c2185b'
+      },
+      fontFamily: {
+        script: ['"Dancing Script"', 'cursive'],
+        body: ['Poppins', 'sans-serif']
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'float-slow': 'float 8s ease-in-out infinite',
+        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+        'fade-up': 'fade-up 1s ease-out forwards',
+        'typing': 'typing 3.5s steps(40) 1s forwards, blink 0.75s step-end infinite',
+        'burst': 'burst 0.6s ease-out forwards',
+        'sparkle': 'sparkle 1.5s ease-in-out infinite',
+        'heart-float': 'heart-float linear forwards'
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' }
+        },
+        'pulse-glow': {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(244, 63, 94, 0.3)' },
+          '50%': { boxShadow: '0 0 40px rgba(244, 63, 94, 0.6)' }
+        },
+        'fade-up': {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        },
+        typing: {
+          '0%': { width: '0' },
+          '100%': { width: '100%' }
+        },
+        blink: {
+          '0%, 100%': { borderColor: 'transparent' },
+          '50%': { borderColor: '#f43f5e' }
+        },
+        burst: {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '100%': { transform: 'scale(2)', opacity: '0' }
+        },
+        sparkle: {
+          '0%, 100%': { opacity: '0.3', transform: 'scale(0.8)' },
+          '50%': { opacity: '1', transform: 'scale(1.2)' }
+        },
+        'heart-float': {
+          '0%': { transform: 'translateY(0) rotate(0deg)', opacity: '1' },
+          '100%': { transform: 'translateY(-100vh) rotate(720deg)', opacity: '0' }
+        }
+      }
+    }
+  },
+  plugins: []
+} satisfies Config

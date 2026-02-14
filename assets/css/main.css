@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Floating hearts container */
+.hearts-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hearts-bg .heart {
+  position: absolute;
+  bottom: -10%;
+  font-size: 1.5rem;
+  animation: heart-float linear forwards;
+  opacity: 0.6;
+}
+
+@keyframes heart-float {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(720deg) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* Typing cursor */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 0.75s step-end infinite;
+  color: #f43f5e;
+  font-weight: 300;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Sparkle effect on hover */
+.sparkle-hover {
+  position: relative;
+}
+
+.sparkle-hover::before {
+  content: '✨';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sparkle-hover:hover::before {
+  opacity: 1;
+}
+
+/* Heart burst particles */
+.heart-particle {
+  position: absolute;
+  font-size: 1.2rem;
+  pointer-events: none;
+  animation: particle-fly 1s ease-out forwards;
+}
+
+@keyframes particle-fly {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0.5);
+  }
+}
+
+/* Music toggle button */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 50;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(244, 63, 94, 0.3);
+  background: rgba(255, 240, 243, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.4);
+}
+
+/* Timeline connector line */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #fda4af, #f43f5e, #fda4af);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 640px) {
+  .timeline-line {
+    left: 20px;
+  }
+}
